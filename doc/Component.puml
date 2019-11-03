@@ -1,0 +1,17 @@
+@startuml
+
+package "Cloudap" {
+[First Component]
+[Another Component]
+}
+
+package "UMeng"{
+   [OSS Writer]
+}
+
+package "AdminNode" {
+   HTTP - [Meta Component]
+   [First Component]
+}
+
+@enduml

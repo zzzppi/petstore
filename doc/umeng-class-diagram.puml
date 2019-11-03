@@ -1,0 +1,21 @@
+@startuml
+
+interface Mover
+abstract class AbstractMover
+
+Mover <|-- AbstractMover
+
+AbstractMover <|-- UMengMover
+
+class UMengMover{
+Object[] elementData
+size()
+}
+
+enum TimeUnit {
+DAYS
+HOURS
+MINUTES
+}
+
+@enduml

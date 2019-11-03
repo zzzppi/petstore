@@ -1,0 +1,19 @@
+@startuml
+(*)  --> "insert overwrite"
+If "object exist" then
+--> [Yes] "创建目录/_temp_partition_"
+--> "CopyObject [key:/_temp_partition_/oldObject]"
+--> "DeleteObjects [key:/partition/oldObject]"
+--> "DeleteObjects [key:/partition]"
+--> "PutObject [key:/partition]"
+--> "CopyObject [key:/partition]"
+--> "CopyObject [key:/partition/object]"
+--> "DeleteObjects [key:/_temp_partition_/oldObject]"
+--> "DeleteObjects [key:/_temp_partition_]"
+-->(*)
+else
+--> [NO] " PutObject [key:/partition]"
+--> " CopyObject [key:/partition/object]"
+Endif
+-->(*)
+@enduml

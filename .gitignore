@@ -1,0 +1,36 @@
+.DS_Store
+
+# Intellij Files
+*.ipr
+*.iws
+federationdb/analyticdb.tar
+
+# Editor directories and files
+.settings
+target
+.classpath
+.project
+*.iml
+*/*.iml
+.idea
+META-INF/MANIFEST.MF
+manifest.mf
+logs/
+*.log
+*.log.gz
+*.mv.db
+*.db
+*.mv.db
+logs/
+.tmp
+MANIFEST.MF
+hive.properties
+work_dir/
+*/bin/
+*/pom.xml.versionsBackup
+*/.factorypath
+*/src/test/results/
+.xihe
+
+*/.vscode/
+*/mvn_dep.txt

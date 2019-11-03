@@ -1,0 +1,8 @@
+@startuml
+Mover-> MNS: pop message
+MNS --> Mover: return message
+
+Mover-> PartitionProcessor: process partition
+PartitionProcessor -> StatsProcessor: storage stats
+StatsProcessor --> Mover: return
+@enduml
