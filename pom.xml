@@ -18,5 +18,6 @@
         <module>main</module>
         <module>network</module>
         <module>sql</module>
+        <module>cloud</module>
     </modules>
 </project>
