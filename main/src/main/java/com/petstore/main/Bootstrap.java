@@ -14,6 +14,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class Bootstrap {
     private static final Log log = LogFactory.getLog(Bootstrap.class);
@@ -45,12 +46,14 @@ public class Bootstrap {
         File dirFile = new File(dir);
         if (!dirFile.exists()) throw new RuntimeException();
         File[] fileList = dirFile.listFiles();
-        Arrays.stream(fileList).forEach(f -> {
-            System.out.println(f.getName());
-            String fileName = f.getName();
-            String key = String.format("dladw/async_task_bak/dt=%s/%s", date, fileName);
-            String filePath = dir + "/" + fileName;
-            ossClientBj.putObject(bucketName, key, new File(filePath));
+        Arrays.stream(fileList).forEach(new Consumer<File>() {
+            public void accept(File f) {
+                System.out.println(f.getName());
+                String fileName = f.getName();
+                String key = String.format("dladw/async_task_bak/dt=%s/%s", date, fileName);
+                String filePath = dir + "/" + fileName;
+                ossClientBj.putObject(bucketName, key, new File(filePath));
+            }
         });
     }
 
